@@ -46,7 +46,8 @@ func executeLatestTag(cmd *cobra.Command, githubServerBaseHostname, githubServer
 		cmd.PrintErr(err)
 	}
 
-	client, err := github.NewEnterpriseClient(baseHostname, uploadHostname, oauth2.NewClient(ctx, tokenSource))
+	client, err := github.NewEnterpriseClient(fmt.Sprintf("https://%s", baseHostname),
+		fmt.Sprintf("https://%s", uploadHostname), oauth2.NewClient(ctx, tokenSource))
 	if err != nil {
 		cmd.PrintErr(fmt.Errorf("github server client could not be created: %w", err))
 		return
