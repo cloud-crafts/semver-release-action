@@ -41,7 +41,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://cloudcrafts/semver-release-action:v1.4.0'
+  image: 'docker://cloudcrafts/semver-release-action:v1.4.1'
   args:
     - ${{ inputs.release_branch }}
     - ${{ inputs.release_strategy }}
